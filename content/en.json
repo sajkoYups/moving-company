@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "title": "Moving Company Hamburg — Get a Quote",
+    "description": "Professional moves in Hamburg. Free on-site visit. Transparent pricing."
+  },
+  "nav": {
+    "services": "Services",
+    "pricing": "Pricing",
+    "calculator": "Calculator",
+    "contact": "Request quote",
+    "impressum": "Imprint",
+    "datenschutz": "Privacy"
+  },
+  "header": {
+    "brand": "Moving Hamburg",
+    "hamburgBadge": "Hamburg",
+    "workingHours": "Mon–Sat",
+    "reply24h": "Reply within 24h"
+  },
+  "hero": {
+    "h1": "Careful moves in Hamburg — final quote after on-site visit",
+    "trustBullet1": "Bilingual German/English team",
+    "trustBullet2": "Mandatory on-site inspection before final quote",
+    "trustBullet3": "Reply within 24 hours",
+    "processStep1": "Submit",
+    "processStep2": "Visit",
+    "processStep3": "Final quote",
+    "formTitle": "Request a quote",
+    "formMicrocopy": "Final price confirmed after a free on-site visit."
+  },
+  "services": {
+    "title": "Our services",
+    "subtitle": "We offer moves and add-on services across Hamburg.",
+    "apartment": "Apartment moves",
+    "apartmentDesc": "Private moves — from one room to a house.",
+    "furniture": "Furniture assembly",
+    "furnitureDesc": "Assembly and disassembly of kitchen, wardrobe, bed, and more.",
+    "packing": "Packing service",
+    "packingDesc": "Safe packing of your belongings.",
+    "disposal": "Disposal (Sperrmüll)",
+    "disposalDesc": "Disposal of bulky waste.",
+    "office": "Office moves",
+    "officeDesc": "Moves for offices and businesses.",
+    "boxes": "Boxes & materials",
+    "boxesDesc": "Moving boxes and packing materials on request."
+  },
+  "trust": {
+    "title": "Why us",
+    "bilingual": "German/English communication",
+    "inspection": "Mandatory inspection before final quote",
+    "care": "Careful handling & protection",
+    "scope": "Clear scope confirmation before move day"
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "step1": "Request a quote (form)",
+    "step2": "We schedule a mandatory on-site visit",
+    "step3": "Final quote confirmed after inspection",
+    "step4": "Move day with confirmed scope",
+    "banner": "We do not confirm final prices without inspection."
+  },
+  "pricing": {
+    "title": "Pricing (non-binding, incl. VAT)",
+    "subtitle": "All prices are indicative. The final price is agreed after a free on-site visit.",
+    "hourly": "from {price} EUR/h (incl. VAT)",
+    "hourlySub": "2 movers + truck",
+    "hourlyDisclaimer": "Final quote after visit",
+    "packages": "Packages (time-based)",
+    "small": "Small move — 3h",
+    "medium": "Medium move — 5h",
+    "fullday": "Full-day move",
+    "apartmentTable": "Apartment size (indicative)",
+    "rooms": "{count} room(s) — from {price} EUR",
+    "roomsPlus": "4+ rooms — from {price} EUR",
+    "vatNote": "Exact price confirmed after visit. All prices incl. VAT."
+  },
+  "calculator": {
+    "title": "Cost calculator",
+    "subtitle": "Enter contact details, then get an estimate. Final price after on-site visit.",
+    "contactFirst": "Contact details for result",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "moveDate": "Move date",
+    "fromZip": "From (postal code Hamburg)",
+    "toZip": "To (postal code Hamburg)",
+    "apartmentSize": "Apartment size (rooms or m²)",
+    "floorFrom": "Floor from",
+    "floorTo": "Floor to",
+    "elevatorFrom": "Elevator from",
+    "elevatorTo": "Elevator to",
+    "assembly": "Assembly / disassembly",
+    "kitchen": "Kitchen",
+    "wardrobe": "Wardrobe",
+    "bed": "Bed",
+    "washingMachine": "Washing machine",
+    "showResult": "Show result",
+    "resultPrefix": "Your move starts from",
+    "resultSuffix": "EUR. Final price confirmed after free on-site visit.",
+    "submitCta": "Request quote"
+  },
+  "quoteForm": {
+    "title": "Request a quote",
+    "subtitle": "We respond within 24 hours. After receiving your request we will arrange a free on-site visit.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "moveDate": "Move date",
+    "fromZip": "From (postal code)",
+    "toZip": "To (postal code)",
+    "floorFrom": "Floor from",
+    "floorTo": "Floor to",
+    "elevatorFrom": "Elevator from",
+    "elevatorTo": "Elevator to",
+    "apartmentSize": "Apartment size",
+    "assemblyItems": "Assembly (kitchen, wardrobe, bed, washing machine)",
+    "message": "Notes",
+    "gdpr": "I have read the privacy policy and consent to the processing of my data for the purpose of contact.",
+    "submit": "Send request",
+    "success": "Thank you. We will get back to you within 24 hours and arrange a free on-site visit."
+  },
+  "care": {
+    "title": "Care & standards",
+    "protectTitle": "How we protect your items",
+    "protect1": "Blankets and padding",
+    "protect2": "Straps and secure loading",
+    "protect3": "Careful loading and unloading",
+    "confirmTitle": "Before move day we confirm",
+    "confirm1": "Scope and schedule",
+    "confirm2": "Parking options",
+    "confirm3": "Access (elevator, floor)"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "q1": "Why is an on-site visit required?",
+    "a1": "Only then can we reliably assess scope, access, and effort and give you a fair final quote.",
+    "q2": "How fast do you reply?",
+    "a2": "We get back to you within 24 hours of your request.",
+    "q3": "What happens after I submit the form?",
+    "a3": "We call or email you and arrange a free on-site visit. After that you receive the final quote.",
+    "q4": "What does assembly/disassembly include?",
+    "a4": "Kitchen, wardrobe, bed, washing machine, and similar items. Exact scope is agreed at the on-site visit.",
+    "q5": "How does disposal (Sperrmüll) work?",
+    "a5": "We discuss scope at the visit and give you the cost for disposal.",
+    "q6": "Weekend moves?",
+    "a6": "Yes. We are available Mon–Sat by appointment.",
+    "q7": "Parking and access?",
+    "a7": "At the on-site visit we clarify parking and access (elevator, floor) so move day runs smoothly.",
+    "q8": "Are prices incl. VAT?",
+    "a8": "Yes. All prices are incl. VAT and are indicative until after the visit."
+  },
+  "contact": {
+    "title": "Contact",
+    "hours": "Mon–Sat",
+    "email": "Email",
+    "phone": "Phone",
+    "area": "Service area: Hamburg"
+  },
+  "footer": {
+    "workingHours": "Mon–Sat",
+    "response": "Response within 24 hours",
+    "legal": "Imprint · Privacy",
+    "cookieSettings": "Cookie settings"
+  },
+  "sticky": {
+    "requestQuote": "Request quote",
+    "call": "Call"
+  },
+  "cookieBanner": {
+    "message": "We use cookies for analytics and advertising. You can withdraw your consent at any time.",
+    "accept": "Accept all",
+    "reject": "Necessary only"
+  },
+  "phonePlaceholder": "+49 40 12345678"
+}

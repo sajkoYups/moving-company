@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "title": "Umzugsfirma Hamburg — Kostenvoranschlag",
+    "description": "Professioneller Umzug in Hamburg. Kostenlose Besichtigung vor Ort. Transparente Preise."
+  },
+  "nav": {
+    "services": "Leistungen",
+    "pricing": "Preise",
+    "calculator": "Kostenrechner",
+    "contact": "Anfrage",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz"
+  },
+  "header": {
+    "brand": "Umzug Hamburg",
+    "hamburgBadge": "Hamburg",
+    "workingHours": "Mo–Sa",
+    "reply24h": "Antwort innerhalb von 24 Std."
+  },
+  "hero": {
+    "h1": "Sorgfältiger Umzug in Hamburg — Festpreis nach Vor-Ort-Termin",
+    "trustBullet1": "Deutsch- und englischsprachiges Team",
+    "trustBullet2": "Kostenlose Besichtigung vor Ort vor Festpreis",
+    "trustBullet3": "Antwort innerhalb von 24 Stunden",
+    "processStep1": "Anfrage senden",
+    "processStep2": "Vor-Ort-Termin",
+    "processStep3": "Festpreis",
+    "formTitle": "Angebot anfragen",
+    "formMicrocopy": "Der endgültige Preis wird nach einer kostenlosen Besichtigung vor Ort bestätigt."
+  },
+  "services": {
+    "title": "Unsere Leistungen",
+    "subtitle": "Wir bieten Umzüge und Zusatzleistungen in ganz Hamburg.",
+    "apartment": "Wohnungsumzüge",
+    "apartmentDesc": "Private Umzüge — von der Ein-Zimmer-Wohnung bis zum Haus.",
+    "furniture": "Möbelmontage",
+    "furnitureDesc": "Auf- und Abbau von Küche, Schrank, Bett und mehr.",
+    "packing": "Packservice",
+    "packingDesc": "Sichere Verpackung Ihrer Sachen.",
+    "disposal": "Sperrmüll",
+    "disposalDesc": "Entsorgung von Sperrmüll.",
+    "office": "Büroumzüge",
+    "officeDesc": "Umzüge für Büros und Gewerbe.",
+    "boxes": "Kartons & Material",
+    "boxesDesc": "Umzugskartons und Verpackungsmaterial auf Anfrage."
+  },
+  "trust": {
+    "title": "Warum wir",
+    "bilingual": "Deutsch- und englischsprachige Kommunikation",
+    "inspection": "Kostenlose Besichtigung vor Ort vor Festpreis",
+    "care": "Sorgfältiger Umgang und Schutz",
+    "scope": "Klare Umfangsbestätigung vor dem Umzugstag"
+  },
+  "howItWorks": {
+    "title": "So funktioniert es",
+    "step1": "Anfrage senden (Formular)",
+    "step2": "Wir vereinbaren einen verbindlichen Vor-Ort-Termin",
+    "step3": "Festpreis nach der Besichtigung",
+    "step4": "Umzugstag mit bestätigtem Umfang",
+    "banner": "Wir bestätigen keine Festpreise ohne Besichtigung."
+  },
+  "pricing": {
+    "title": "Preise (unverbindlich, inkl. MwSt.)",
+    "subtitle": "Alle Preise verstehen sich als Richtwerte. Der endgültige Preis wird nach einer kostenlosen Besichtigung vor Ort festgelegt.",
+    "hourly": "ab {price} EUR/h (inkl. MwSt.)",
+    "hourlySub": "2 Männer + Transporter",
+    "hourlyDisclaimer": "Festpreis nach Besichtigung",
+    "packages": "Pakete (Zeitbasis)",
+    "small": "Kleiner Umzug — 3 Std.",
+    "medium": "Mittlerer Umzug — 5 Std.",
+    "fullday": "Tagesumzug",
+    "apartmentTable": "Wohnungsgröße (Richtwerte)",
+    "rooms": "{count} Zimmer — ab {price} EUR",
+    "roomsPlus": "4+ Zimmer — ab {price} EUR",
+    "vatNote": "Genauer Preis nach Besichtigung. Alle Preise inkl. MwSt."
+  },
+  "calculator": {
+    "title": "Kostenrechner",
+    "subtitle": "Kontaktdaten angeben, dann Schätzung. Festpreis nach Vor-Ort-Termin.",
+    "contactFirst": "Kontaktdaten für Ergebnis",
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "moveDate": "Umzugstermin",
+    "fromZip": "Von (PLZ Hamburg)",
+    "toZip": "Nach (PLZ Hamburg)",
+    "apartmentSize": "Wohnungsgröße (Zimmer oder m²)",
+    "floorFrom": "Etage von",
+    "floorTo": "Etage nach",
+    "elevatorFrom": "Aufzug von",
+    "elevatorTo": "Aufzug nach",
+    "assembly": "Montage / Demontage",
+    "kitchen": "Küche",
+    "wardrobe": "Schrank",
+    "bed": "Bett",
+    "washingMachine": "Waschmaschine",
+    "showResult": "Ergebnis anzeigen",
+    "resultPrefix": "Ihr Umzug beginnt ab",
+    "resultSuffix": "EUR. Festpreis nach kostenloser Besichtigung vor Ort.",
+    "submitCta": "Angebot anfragen"
+  },
+  "quoteForm": {
+    "title": "Angebot anfragen",
+    "subtitle": "Wir melden uns innerhalb von 24 Stunden. Nach Eingang Ihrer Anfrage vereinbaren wir eine kostenlose Besichtigung vor Ort.",
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "moveDate": "Umzugstermin",
+    "fromZip": "Von (PLZ)",
+    "toZip": "Nach (PLZ)",
+    "floorFrom": "Etage von",
+    "floorTo": "Etage nach",
+    "elevatorFrom": "Aufzug von",
+    "elevatorTo": "Aufzug nach",
+    "apartmentSize": "Wohnungsgröße",
+    "assemblyItems": "Montage (Küche, Schrank, Bett, Waschmaschine)",
+    "message": "Anmerkungen",
+    "gdpr": "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zum Zweck der Kontaktaufnahme zu.",
+    "submit": "Anfrage absenden",
+    "success": "Vielen Dank. Wir melden uns innerhalb von 24 Stunden und vereinbaren eine kostenlose Besichtigung vor Ort."
+  },
+  "care": {
+    "title": "Sorgfalt & Standards",
+    "protectTitle": "So schützen wir Ihre Sachen",
+    "protect1": "Decken und Polsterung",
+    "protect2": "Gurte und sichere Ladung",
+    "protect3": "Vorsichtiges Be- und Entladen",
+    "confirmTitle": "Vor dem Umzugstag bestätigen wir",
+    "confirm1": "Umfang und Ablauf",
+    "confirm2": "Parkmöglichkeiten",
+    "confirm3": "Zugang (Aufzug, Etage)"
+  },
+  "faq": {
+    "title": "Häufige Fragen",
+    "q1": "Warum ist eine Vor-Ort-Besichtigung nötig?",
+    "a1": "Nur so können wir Umfang, Zugang und Aufwand zuverlässig einschätzen und Ihnen einen fairen Festpreis nennen.",
+    "q2": "Wie schnell antwortet ihr?",
+    "a2": "Wir melden uns innerhalb von 24 Stunden nach Ihrer Anfrage.",
+    "q3": "Was passiert nach dem Absenden des Formulars?",
+    "a3": "Wir rufen oder mailen Sie an und vereinbaren einen kostenlosen Vor-Ort-Termin. Danach erhalten Sie das Festpreis-Angebot.",
+    "q4": "Was umfasst Montage/Demontage?",
+    "a4": "Küche, Schrank, Bett, Waschmaschine und ähnliche Möbel. Der genaue Umfang wird beim Vor-Ort-Termin festgelegt.",
+    "q5": "Wie läuft die Entsorgung (Sperrmüll) ab?",
+    "a5": "Wir besprechen den Umfang bei der Besichtigung und nennen Ihnen die Kosten dafür.",
+    "q6": "Umzüge am Wochenende?",
+    "a6": "Ja, wir sind Mo–Sa für Sie da. Termine nach Absprache.",
+    "q7": "Parken und Zugang?",
+    "a7": "Beim Vor-Ort-Termin klären wir Parkmöglichkeiten und Zugang (Aufzug, Etage), damit am Umzugstag alles reibungslos läuft.",
+    "q8": "Sind die Preise inkl. MwSt.?",
+    "a8": "Ja. Alle genannten Preise verstehen sich inkl. MwSt. und als Richtwerte bis zur Besichtigung."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "hours": "Mo–Sa",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "area": "Einsatzgebiet: Hamburg"
+  },
+  "footer": {
+    "workingHours": "Mo–Sa",
+    "response": "Antwort innerhalb von 24 Stunden",
+    "legal": "Impressum · Datenschutz",
+    "cookieSettings": "Cookie-Einstellungen"
+  },
+  "sticky": {
+    "requestQuote": "Angebot anfragen",
+    "call": "Anrufen"
+  },
+  "cookieBanner": {
+    "message": "Wir verwenden Cookies für Analyse und Werbung. Sie können Ihre Einwilligung jederzeit widerrufen.",
+    "accept": "Alle akzeptieren",
+    "reject": "Nur notwendige"
+  },
+  "phonePlaceholder": "+49 40 12345678"
+}
