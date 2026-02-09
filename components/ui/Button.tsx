@@ -2,7 +2,7 @@
 
 import { type ReactNode, type ButtonHTMLAttributes } from "react";
 
-/** Primary: filled accent, 48px height. Secondary: outline. Loading state (design_file §4.1) */
+/** Primary: filled accent with gradient, 48px height. Secondary: outline. Loading state (design_file §4.1) */
 export function Button({
   children,
   variant = "primary",
@@ -20,11 +20,11 @@ export function Button({
   className?: string;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">) {
   const base =
-    "inline-flex items-center justify-center h-12 min-h-[48px] px-6 rounded-[var(--radius-button)] font-semibold text-base transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:opacity-50 disabled:pointer-events-none";
+    "relative inline-flex items-center justify-center h-12 min-h-[48px] px-6 rounded-[var(--radius-button)] font-semibold text-base transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:opacity-50 disabled:pointer-events-none will-change-transform";
   const styles =
     variant === "primary"
-      ? "bg-[var(--accent)] text-white hover:bg-[#c2410c]"
-      : "border-2 border-[var(--primary)] text-[var(--text)] hover:bg-[var(--primary)]/5";
+      ? "bg-gradient-to-r from-[var(--accent)] to-[#F97316] text-white shadow-lg shadow-[var(--accent)]/30 hover:shadow-xl hover:shadow-[var(--accent)]/40 hover:scale-105 active:scale-100"
+      : "border-2 border-[var(--primary)] text-[var(--text)] hover:bg-[var(--primary)]/5 hover:border-[var(--accent)] hover:scale-105 active:scale-100";
 
   return (
     <button

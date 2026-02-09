@@ -16,59 +16,66 @@ export function Services({ locale }: { locale: Locale }) {
   ] as const;
 
   return (
-    <Section id="services" className="bg-[var(--bg)]">
-      <div className="max-w-[var(--max-content)] mx-auto">
-        <div className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[var(--text)] mb-2">{s.title}</h2>
+    <Section id="services" className="relative bg-[var(--bg)] overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none" style={{ background: 'var(--gradient-mesh-2)' }} />
+      <div className="noise-texture absolute inset-0 pointer-events-none" />
+      
+      <div className="relative z-10 max-w-[var(--max-content)] mx-auto">
+        <div className="mb-12 animate-fade-in-up stagger-1 opacity-0">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--text)] mb-2">{s.title}</h2>
           <p className="text-[var(--muted)] text-lg">{s.subtitle}</p>
         </div>
         
-        {/* Balanced 3×2 grid — every row full, no lone card at bottom */}
+        {/* Balanced 3×2 grid with overlapping effects */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {items.map(({ titleKey, descKey, icon, featured }, index) => {
             const isFeatured = featured && index === 0;
+            const staggerDelay = `stagger-${index + 2}`;
             
             return (
               <div
                 key={titleKey}
                 className={`
-                  group relative overflow-hidden transition-all duration-200 hover:scale-[1.02] hover:shadow-xl
+                  group relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 will-change-transform
+                  animate-scale-in ${staggerDelay} opacity-0
                   ${isFeatured 
-                    ? "bg-gradient-to-br from-[var(--accent)]/10 via-[var(--primary)]/5 to-[var(--secondary)]/5 rounded-2xl p-6 lg:p-8 border-2 border-[var(--accent)]/20" 
-                    : "bg-[var(--surface)] rounded-2xl p-6 border border-[var(--border)] shadow-sm hover:shadow-md"
+                    ? "bg-gradient-to-br from-[var(--accent)]/10 via-[var(--primary)]/5 to-[var(--secondary)]/5 rounded-2xl p-6 lg:p-8 border-2 border-[var(--accent)]/20 shadow-[var(--shadow-layered)] hover:shadow-[var(--shadow-dramatic)] lg:-mt-4 lg:mb-4" 
+                    : "bg-[var(--surface)] rounded-2xl p-6 border border-[var(--border)] shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)]"
                   }
                 `}
               >
-                {/* Background decorative elements for featured only */}
+                {/* Background decorative elements for featured */}
                 {isFeatured && (
                   <>
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent)]/5 rounded-full -mr-16 -mt-16" />
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-[var(--secondary)]/5 rounded-full -ml-12 -mb-12" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent)]/5 rounded-full -mr-16 -mt-16 animate-pulse" />
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-[var(--secondary)]/5 rounded-full -ml-12 -mb-12 animate-pulse" style={{ animationDelay: '1s' }} />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </>
                 )}
                 
-                {/* Icon */}
+                {/* Icon with enhanced animations */}
                 <div className="mb-5 flex items-center relative z-10">
                   <div className={`
-                    w-14 h-14 rounded-xl flex items-center justify-center text-[var(--primary)]
+                    w-14 h-14 rounded-xl flex items-center justify-center text-[var(--primary)] relative
                     ${isFeatured 
-                      ? "bg-[var(--accent)]/20 text-[var(--accent)]" 
+                      ? "bg-[var(--accent)]/20 text-[var(--accent)] shadow-lg shadow-[var(--accent)]/20" 
                       : "bg-gradient-to-br from-[var(--primary)]/10 to-[var(--secondary)]/10"
                     }
-                    transition-transform duration-200 group-hover:scale-110 group-hover:rotate-3
+                    transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-xl
                   `}>
-                    {icon === "Truck" && <TruckIcon size={isFeatured ? 28 : 24} />}
-                    {icon === "Building" && <BuildingIcon size={isFeatured ? 28 : 24} />}
-                    {icon === "Box" && <BoxIcon size={isFeatured ? 28 : 24} />}
-                    {icon === "Wrench" && <WrenchIcon size={isFeatured ? 28 : 24} />}
-                    {icon === "Trash" && <TrashIcon size={isFeatured ? 28 : 24} />}
-                    {icon === "Package" && <PackageIcon size={isFeatured ? 28 : 24} />}
+                    {icon === "Truck" && <TruckIcon size={isFeatured ? 28 : 24} className="transition-transform duration-300 group-hover:scale-110" />}
+                    {icon === "Building" && <BuildingIcon size={isFeatured ? 28 : 24} className="transition-transform duration-300 group-hover:scale-110" />}
+                    {icon === "Box" && <BoxIcon size={isFeatured ? 28 : 24} className="transition-transform duration-300 group-hover:scale-110" />}
+                    {icon === "Wrench" && <WrenchIcon size={isFeatured ? 28 : 24} className="transition-transform duration-300 group-hover:scale-110" />}
+                    {icon === "Trash" && <TrashIcon size={isFeatured ? 28 : 24} className="transition-transform duration-300 group-hover:scale-110" />}
+                    {icon === "Package" && <PackageIcon size={isFeatured ? 28 : 24} className="transition-transform duration-300 group-hover:scale-110" />}
                   </div>
                 </div>
                 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="font-semibold text-[var(--text)] text-lg mb-2">
+                  <h3 className="font-display font-semibold text-[var(--text)] text-lg mb-2">
                     {s[titleKey]}
                   </h3>
                   <p className="text-[var(--muted)] text-sm leading-relaxed">
@@ -76,9 +83,9 @@ export function Services({ locale }: { locale: Locale }) {
                   </p>
                 </div>
                 
-                {/* Subtle accent line on hover */}
+                {/* Enhanced accent line on hover */}
                 {!isFeatured && (
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--accent)]/0 via-[var(--accent)]/30 to-[var(--accent)]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--accent)]/0 via-[var(--accent)]/40 to-[var(--accent)]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 )}
               </div>
             );

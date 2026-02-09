@@ -16,53 +16,59 @@ export function Pricing({ locale }: { locale: Locale }) {
   const p = tr.pricing as Record<string, string>;
 
   return (
-    <Section id="pricing" className="bg-[var(--bg)]">
-      <h2 className="text-2xl md:text-3xl font-bold text-[var(--text)] mb-2">{p.title}</h2>
-      <p className="text-[var(--muted)] mb-10">{p.subtitle}</p>
+    <Section id="pricing" className="relative bg-[var(--bg)] overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ background: 'var(--gradient-mesh-1)' }} />
+      <div className="noise-texture absolute inset-0 pointer-events-none" />
+      
+      <div className="relative z-10">
+        <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--text)] mb-2 animate-fade-in-up stagger-1 opacity-0">{p.title}</h2>
+        <p className="text-[var(--muted)] mb-10 animate-fade-in-up stagger-2 opacity-0">{p.subtitle}</p>
 
-      {/* Block A — Hourly anchor */}
-      <Card className="p-6 mb-8 max-w-md">
-        <p className="text-3xl font-bold text-[var(--text)]">{t(p.hourly, { price: String(HOURLY_RATE_EUR) })}</p>
-        <p className="mt-2 text-[var(--muted)]">{p.hourlySub}</p>
-        <ul className="mt-4 space-y-1 text-sm text-[var(--muted)]">
-          <li>• 2 Männer + Transporter</li>
-          <li>• Inkl. Grundleistung</li>
-        </ul>
-        <p className="mt-4 text-sm font-medium text-[var(--primary)]">{p.hourlyDisclaimer}</p>
-      </Card>
+        {/* Block A — Hourly anchor */}
+        <Card variant="elevated" className="p-6 mb-8 max-w-md animate-scale-in stagger-3 opacity-0">
+          <p className="font-display text-3xl font-bold text-[var(--text)]">{t(p.hourly, { price: String(HOURLY_RATE_EUR) })}</p>
+          <p className="mt-2 text-[var(--muted)]">{p.hourlySub}</p>
+          <ul className="mt-4 space-y-1 text-sm text-[var(--muted)]">
+            <li>• 2 Männer + Transporter</li>
+            <li>• Inkl. Grundleistung</li>
+          </ul>
+          <p className="mt-4 text-sm font-medium text-[var(--primary)]">{p.hourlyDisclaimer}</p>
+        </Card>
 
-      {/* Block B — Packages */}
-      <h3 className="text-xl font-semibold text-[var(--text)] mb-4">{p.packages}</h3>
-      <div className="grid sm:grid-cols-3 gap-4 mb-10">
-        {PACKAGES.map((pk) => (
-          <Card key={pk.id} className="p-6 text-center">
-            <p className="font-semibold text-[var(--text)]">{p[pk.id]}</p>
-            <p className="mt-2 text-lg font-bold text-[var(--accent)]">
-              from {PACKAGE_FROM_PRICES_EUR[pk.id] ?? pk.hours * HOURLY_RATE_EUR} EUR
-            </p>
-          </Card>
-        ))}
-      </div>
+        {/* Block B — Packages */}
+        <h3 className="font-display text-xl font-semibold text-[var(--text)] mb-4 animate-fade-in-up stagger-4 opacity-0">{p.packages}</h3>
+        <div className="grid sm:grid-cols-3 gap-4 mb-10">
+          {PACKAGES.map((pk, index) => (
+            <Card key={pk.id} variant="gradient-border" className="p-6 text-center animate-scale-in stagger-5 opacity-0" style={{ animationDelay: `${0.5 + index * 0.1}s` }}>
+              <p className="font-display font-semibold text-[var(--text)]">{p[pk.id]}</p>
+              <p className="mt-2 font-display text-lg font-bold gradient-text">
+                from {PACKAGE_FROM_PRICES_EUR[pk.id] ?? pk.hours * HOURLY_RATE_EUR} EUR
+              </p>
+            </Card>
+          ))}
+        </div>
 
-      {/* Block C — Apartment table */}
-      <h3 className="text-xl font-semibold text-[var(--text)] mb-4">{p.apartmentTable}</h3>
-      <div className="overflow-x-auto rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface)]">
-        <table className="w-full text-left">
-          <tbody>
-            {[1, 2, 3].map((rooms) => (
-              <tr key={rooms} className="border-b border-[var(--border)] last:border-0">
-                <td className="px-4 py-3 font-medium text-[var(--text)]">{rooms} {locale === "de" ? "Zimmer" : "room(s)"}</td>
-                <td className="px-4 py-3 text-[var(--muted)]">from {APARTMENT_FROM_PRICES_EUR[rooms]} EUR</td>
+        {/* Block C — Apartment table */}
+        <h3 className="font-display text-xl font-semibold text-[var(--text)] mb-4 animate-fade-in-up stagger-6 opacity-0">{p.apartmentTable}</h3>
+        <div className="overflow-x-auto rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface)] shadow-[var(--shadow-card)] animate-fade-in-up stagger-6 opacity-0">
+          <table className="w-full text-left">
+            <tbody>
+              {[1, 2, 3].map((rooms) => (
+                <tr key={rooms} className="border-b border-[var(--border)] last:border-0 transition-colors hover:bg-[var(--bg)]/50">
+                  <td className="px-4 py-3 font-display font-medium text-[var(--text)]">{rooms} {locale === "de" ? "Zimmer" : "room(s)"}</td>
+                  <td className="px-4 py-3 text-[var(--muted)]">from {APARTMENT_FROM_PRICES_EUR[rooms]} EUR</td>
+                </tr>
+              ))}
+              <tr className="border-b border-[var(--border)] last:border-0 transition-colors hover:bg-[var(--bg)]/50">
+                <td className="px-4 py-3 font-display font-medium text-[var(--text)]">4+ {locale === "de" ? "Zimmer" : "rooms"}</td>
+                <td className="px-4 py-3 text-[var(--muted)]">from {APARTMENT_FROM_PRICES_EUR[4]} EUR</td>
               </tr>
-            ))}
-            <tr className="border-b border-[var(--border)] last:border-0">
-              <td className="px-4 py-3 font-medium text-[var(--text)]">4+ {locale === "de" ? "Zimmer" : "rooms"}</td>
-              <td className="px-4 py-3 text-[var(--muted)]">from {APARTMENT_FROM_PRICES_EUR[4]} EUR</td>
-            </tr>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-6 text-sm text-[var(--muted)] animate-fade-in-up stagger-6 opacity-0">{p.vatNote}</p>
       </div>
-      <p className="mt-6 text-sm text-[var(--muted)]">{p.vatNote}</p>
     </Section>
   );
 }

@@ -24,7 +24,7 @@ export function Input({
       <input
         id={inputId}
         required={required}
-        className={`h-12 w-full rounded-[var(--radius-input)] border border-[var(--border)] bg-[var(--surface)] px-4 text-[var(--text)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 focus:outline-none ${error ? "border-[var(--error)]" : ""} ${className}`}
+        className={`h-12 w-full rounded-[var(--radius-input)] border border-[var(--border)] bg-[var(--surface)] px-4 text-[var(--text)] placeholder:text-[var(--muted)] transition-all duration-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 focus:outline-none focus:shadow-lg focus:shadow-[var(--accent)]/10 ${error ? "border-[var(--error)] focus:border-[var(--error)] focus:ring-[var(--error)]/20" : ""} ${className}`}
         aria-invalid={!!error}
         aria-describedby={error ? `${inputId}-error` : undefined}
         {...props}
@@ -61,7 +61,7 @@ export function Textarea({
       <textarea
         id={inputId}
         required={required}
-        className={`min-h-[96px] w-full rounded-[var(--radius-input)] border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-[var(--text)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 focus:outline-none ${error ? "border-[var(--error)]" : ""} ${className}`}
+        className={`min-h-[96px] w-full rounded-[var(--radius-input)] border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-[var(--text)] placeholder:text-[var(--muted)] transition-all duration-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 focus:outline-none focus:shadow-lg focus:shadow-[var(--accent)]/10 ${error ? "border-[var(--error)] focus:border-[var(--error)] focus:ring-[var(--error)]/20" : ""} ${className}`}
         aria-invalid={!!error}
         aria-describedby={error ? `${inputId}-error` : undefined}
         {...props}
