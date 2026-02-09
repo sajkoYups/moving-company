@@ -1,4 +1,4 @@
-# Design Plan — Moving Company Hamburg One-Pager (DE/EN)
+# Design Plan — elbe move One-Pager (DE/EN)
 
 **File:** `design_plan.md`
 **Goal:** A premium-looking, high-converting one-pager for a Hamburg moving company with budget-friendly pricing. Bilingual (DE/EN), manual language switch, SEO-first. Primary conversion: form submission. Strong emphasis: **final quote only after mandatory on-site visit**.

@@ -61,7 +61,7 @@ export default async function ImpressumPage({
           : "Information according to § 5 TMG. (Placeholder — replace with legal details before launch.)"}
       </p>
       <p className="mt-4 text-zinc-600">
-        [Firmenname]<br />
+        elbe move<br />
         [Straße, Hausnummer]<br />
         [PLZ] Hamburg<br />
         [Land]

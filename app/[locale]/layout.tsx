@@ -22,7 +22,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  if (!isValidLocale(locale)) return { title: "Moving Company Hamburg" };
+  if (!isValidLocale(locale)) return { title: "elbe move" };
   const t = getTranslations(locale);
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
   const url = `${baseUrl}/${locale}`;
@@ -42,7 +42,7 @@ export async function generateMetadata({
       title: t.meta.title,
       description: t.meta.description,
       url: url,
-      siteName: locale === "de" ? "Umzugsfirma Hamburg" : "Moving Company Hamburg",
+      siteName: "elbe move",
       locale: locale === "de" ? "de_DE" : "en_US",
       type: "website",
       alternateLocale: locale === "de" ? "en_US" : "de_DE",

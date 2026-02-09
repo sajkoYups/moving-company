@@ -12,7 +12,7 @@ export function JsonLd({ locale }: { locale: Locale }) {
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: isDe ? "Umzugsfirma Hamburg" : "Moving Company Hamburg",
+    name: "elbe move",
     description: isDe
       ? "Umzug in Hamburg. Kostenlose Besichtigung vor Ort. Transparente Preise."
       : "Moving in Hamburg. Free on-site visit. Transparent pricing.",

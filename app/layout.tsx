@@ -18,8 +18,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Moving Company Hamburg",
-  description: "Umzug Hamburg — transparent and fair. Free on-site visit.",
+  title: "elbe move",
+  description: "elbe move — transparent and fair. Free on-site visit.",
 };
 
 export default function RootLayout({

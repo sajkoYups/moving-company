@@ -1,4 +1,4 @@
-# Moving Company Hamburg — Lead-Gen One-Pager (DE/EN)
+# elbe move — Lead-Gen One-Pager (DE/EN)
 
 **Purpose:** This document defines a clear, no-ambiguity development plan for a bilingual (German/English) one-page website for a Hamburg-based moving company. The site’s sole goal is to generate qualified quote requests. All decisions below are final and intentional.
 
@@ -6,7 +6,7 @@
 
 ## 1. Business Definition
 
-* **Brand:** Placeholder name (to be replaced before launch)
+* **Brand:** elbe move
 * **Domain:** Keyword-based `.com` domain (placeholder)
 * **Service area:** Hamburg city only
 * **Languages:** German (DE) and English (EN)
