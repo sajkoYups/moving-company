@@ -6,33 +6,44 @@ import { Section } from "@/components/ui/Section";
 export function HowItWorks({ locale }: { locale: Locale }) {
   const t = getTranslations(locale);
   const h = t.howItWorks as Record<string, string>;
-  const steps = [h.step1, h.step2, h.step3, h.step4];
+  const steps = [
+    { title: h.step1, desc: h.step1Desc },
+    { title: h.step2, desc: h.step2Desc },
+    { title: h.step3, desc: h.step3Desc },
+    { title: h.step4, desc: h.step4Desc },
+  ];
 
   return (
     <Section id="how-it-works" className="bg-[var(--surface)]">
-      <h2 className="text-2xl md:text-3xl font-bold text-[var(--text)] mb-10">{h.title}</h2>
+      <h2 className="text-2xl md:text-3xl font-bold text-[var(--text)] mb-4">{h.title}</h2>
+      {h.intro && (
+        <p className="text-[var(--muted)] mb-10 max-w-2xl">{h.intro}</p>
+      )}
       {/* Desktop: horizontal stepper */}
-      <div className="hidden md:flex items-start justify-between gap-4">
-        {steps.map((label, i) => (
-          <div key={i} className="flex-1 flex flex-col items-center text-center">
-            <div className="w-10 h-10 rounded-full bg-[var(--accent)] text-white font-bold flex items-center justify-center text-sm shrink-0">
-              {i + 1}
+      <div className="hidden md:grid grid-cols-4 gap-6 mb-10">
+        {steps.map((step, i) => (
+          <div key={i} className="flex flex-col">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-[var(--accent)] text-white font-bold flex items-center justify-center text-sm shrink-0">
+                {i + 1}
+              </div>
+              <h3 className="text-base font-semibold text-[var(--text)]">{step.title}</h3>
             </div>
-            {i < steps.length - 1 && (
-              <div className="flex-1 min-w-[20px] h-0.5 bg-[var(--border)] mt-5 -mb-5 self-stretch" aria-hidden />
-            )}
-            <p className="mt-4 text-sm font-medium text-[var(--text)] max-w-[180px]">{label}</p>
+            <p className="text-sm text-[var(--muted)] ml-[52px]">{step.desc}</p>
           </div>
         ))}
       </div>
       {/* Mobile: vertical stepper */}
-      <div className="md:hidden space-y-6">
-        {steps.map((label, i) => (
+      <div className="md:hidden space-y-6 mb-10">
+        {steps.map((step, i) => (
           <div key={i} className="flex gap-4">
             <div className="w-10 h-10 rounded-full bg-[var(--accent)] text-white font-bold flex items-center justify-center text-sm shrink-0">
               {i + 1}
             </div>
-            <p className="pt-1.5 text-sm font-medium text-[var(--text)]">{label}</p>
+            <div className="flex-1">
+              <h3 className="text-sm font-semibold text-[var(--text)] mb-1">{step.title}</h3>
+              <p className="text-sm text-[var(--muted)]">{step.desc}</p>
+            </div>
           </div>
         ))}
       </div>
