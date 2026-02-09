@@ -1,7 +1,14 @@
 import type { Locale } from "@/lib/i18n";
+import { getTranslations } from "@/lib/i18n";
+
+const PHONE = process.env.NEXT_PUBLIC_PHONE ?? "+49 40 12345678";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
 export function JsonLd({ locale }: { locale: Locale }) {
   const isDe = locale === "de";
+  const t = getTranslations(locale);
+  const faq = t.faq as Record<string, string>;
+
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -9,7 +16,18 @@ export function JsonLd({ locale }: { locale: Locale }) {
     description: isDe
       ? "Umzug in Hamburg. Kostenlose Besichtigung vor Ort. Transparente Preise."
       : "Moving in Hamburg. Free on-site visit. Transparent pricing.",
+    telephone: PHONE.replace(/\s/g, ""),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Hamburg",
+      addressCountry: "DE",
+    },
     areaServed: { "@type": "City", name: "Hamburg" },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 53.5511,
+      longitude: 9.9937,
+    },
     priceRange: "€€",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -17,31 +35,80 @@ export function JsonLd({ locale }: { locale: Locale }) {
       opens: "08:00",
       closes: "18:00",
     },
+    url: `${BASE_URL}/${locale}`,
   };
-  const faq = {
+
+  const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
       {
         "@type": "Question",
-        name: isDe ? "Wann wird der endgültige Preis festgelegt?" : "When is the final price agreed?",
+        name: faq.q1,
         acceptedAnswer: {
           "@type": "Answer",
-          text: isDe
-            ? "Der endgültige Preis wird erst nach einer kostenlosen Besichtigung vor Ort festgelegt."
-            : "The final price is agreed only after a free on-site visit.",
+          text: faq.a1,
         },
       },
       {
         "@type": "Question",
-        name: isDe ? "In welchem Gebiet sind Sie tätig?" : "What area do you serve?",
+        name: faq.q2,
         acceptedAnswer: {
           "@type": "Answer",
-          text: isDe ? "Wir sind in Hamburg tätig." : "We serve Hamburg.",
+          text: faq.a2,
+        },
+      },
+      {
+        "@type": "Question",
+        name: faq.q3,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a3,
+        },
+      },
+      {
+        "@type": "Question",
+        name: faq.q4,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a4,
+        },
+      },
+      {
+        "@type": "Question",
+        name: faq.q5,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a5,
+        },
+      },
+      {
+        "@type": "Question",
+        name: faq.q6,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a6,
+        },
+      },
+      {
+        "@type": "Question",
+        name: faq.q7,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a7,
+        },
+      },
+      {
+        "@type": "Question",
+        name: faq.q8,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a8,
         },
       },
     ],
   };
+
   return (
     <>
       <script
@@ -50,7 +117,7 @@ export function JsonLd({ locale }: { locale: Locale }) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );

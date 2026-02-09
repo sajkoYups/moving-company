@@ -24,9 +24,34 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return { title: "Moving Company Hamburg" };
   const t = getTranslations(locale);
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+  const url = `${baseUrl}/${locale}`;
+  const alternateUrls = {
+    de: `${baseUrl}/de`,
+    en: `${baseUrl}/en`,
+  };
+
   return {
     title: t.meta.title,
     description: t.meta.description,
+    alternates: {
+      canonical: url,
+      languages: alternateUrls,
+    },
+    openGraph: {
+      title: t.meta.title,
+      description: t.meta.description,
+      url: url,
+      siteName: locale === "de" ? "Umzugsfirma Hamburg" : "Moving Company Hamburg",
+      locale: locale === "de" ? "de_DE" : "en_US",
+      type: "website",
+      alternateLocale: locale === "de" ? "en_US" : "de_DE",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.meta.title,
+      description: t.meta.description,
+    },
   };
 }
 

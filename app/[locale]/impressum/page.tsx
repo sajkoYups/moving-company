@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
@@ -6,6 +7,38 @@ const LOCALES: Locale[] = ["de", "en"];
 
 function isValidLocale(locale: string): locale is Locale {
   return LOCALES.includes(locale as Locale);
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) return { title: "Impressum" };
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+  const url = `${baseUrl}/${locale}/impressum`;
+  const isDe = locale === "de";
+  const title = isDe ? "Impressum" : "Imprint";
+  const description = isDe
+    ? "Impressum gemäß § 5 TMG"
+    : "Imprint according to § 5 TMG";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: {
+        de: `${baseUrl}/de/impressum`,
+        en: `${baseUrl}/en/impressum`,
+      },
+    },
+    robots: {
+      index: false,
+      follow: true,
+    },
+  };
 }
 
 export default async function ImpressumPage({
