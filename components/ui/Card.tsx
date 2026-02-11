@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { type ReactNode, type CSSProperties } from "react";
 
 /** Surface, border, radius 16px, enhanced shadow system, decorative borders (design_file §2.4, §4.3) */
 export function Card({
@@ -6,11 +6,15 @@ export function Card({
   className = "",
   as: Tag = "div",
   variant = "default",
+  style,
+  ...rest
 }: {
   children: ReactNode;
   className?: string;
   as?: "div" | "article" | "section";
   variant?: "default" | "gradient-border" | "elevated";
+  style?: CSSProperties;
+  [key: string]: unknown;
 }) {
   const baseStyles = "rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface)] p-6 transition-all duration-300 will-change-transform";
   
@@ -23,6 +27,8 @@ export function Card({
   return (
     <Tag
       className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+      style={style}
+      {...rest}
     >
       {children}
     </Tag>
