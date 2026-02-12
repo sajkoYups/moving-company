@@ -24,10 +24,29 @@ export function Calculator({ locale }: { locale: Locale }) {
     floorTo: 0,
     elevatorFrom: false,
     elevatorTo: false,
+    // Detailed furniture
+    kitchenDisassembly: false,
+    kitchenAssembly: false,
+    doubleBedCount: 0,
+    singleBedCount: 0,
+    largeSofaCount: 0,
+    standardSofaCount: 0,
+    wardrobe5DoorCount: 0,
+    wardrobe4DoorCount: 0,
+    tvCommodeCount: 0,
+    cabinetCount: 0,
+    washingMachineDisassembly: false,
+    washingMachineAssembly: false,
+    // Legacy support
     kitchen: false,
     wardrobe: false,
     bed: false,
     washingMachine: false,
+    // Add-ons
+    packingHours: 0,
+    parkingPermit: false,
+    weekend: false,
+    lift: false,
   });
   const [fromPrice, setFromPrice] = useState<number | null>(null);
 
@@ -47,10 +66,29 @@ export function Calculator({ locale }: { locale: Locale }) {
       floorTo: Number(inputs.floorTo) || 0,
       elevatorFrom: inputs.elevatorFrom ?? false,
       elevatorTo: inputs.elevatorTo ?? false,
+      // Detailed furniture
+      kitchenDisassembly: inputs.kitchenDisassembly ?? false,
+      kitchenAssembly: inputs.kitchenAssembly ?? false,
+      doubleBedCount: Number(inputs.doubleBedCount) || 0,
+      singleBedCount: Number(inputs.singleBedCount) || 0,
+      largeSofaCount: Number(inputs.largeSofaCount) || 0,
+      standardSofaCount: Number(inputs.standardSofaCount) || 0,
+      wardrobe5DoorCount: Number(inputs.wardrobe5DoorCount) || 0,
+      wardrobe4DoorCount: Number(inputs.wardrobe4DoorCount) || 0,
+      tvCommodeCount: Number(inputs.tvCommodeCount) || 0,
+      cabinetCount: Number(inputs.cabinetCount) || 0,
+      washingMachineDisassembly: inputs.washingMachineDisassembly ?? false,
+      washingMachineAssembly: inputs.washingMachineAssembly ?? false,
+      // Legacy support
       kitchen: inputs.kitchen ?? false,
       wardrobe: inputs.wardrobe ?? false,
       bed: inputs.bed ?? false,
       washingMachine: inputs.washingMachine ?? false,
+      // Add-ons
+      packingHours: Number(inputs.packingHours) || 0,
+      parkingPermit: inputs.parkingPermit ?? false,
+      weekend: inputs.weekend ?? false,
+      lift: inputs.lift ?? false,
     };
     setFromPrice(calculateFromPrice(full));
     setStep("result");
@@ -101,14 +139,125 @@ export function Calculator({ locale }: { locale: Locale }) {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-[var(--text)] mb-2">{calc.assembly}</p>
-                  <div className="flex flex-wrap gap-4">
-                    {(["kitchen", "wardrobe", "bed", "washingMachine"] as const).map((key) => (
-                      <label key={key} className="flex items-center gap-2 text-sm">
-                        <input type="checkbox" checked={inputs[key] ?? false} onChange={(e) => setInputs((i) => ({ ...i, [key]: e.target.checked }))} />
-                        {calc[key]}
+                  
+                  {/* Kitchen */}
+                  <div className="mb-3 p-3 border border-[var(--border)] rounded-[var(--radius-input)]">
+                    <label className="flex items-center gap-2 text-sm font-medium mb-2">{calc.kitchen}</label>
+                    <div className="flex gap-4 ml-4">
+                      <label className="flex items-center gap-2 text-sm">
+                        <input type="checkbox" checked={inputs.kitchenDisassembly ?? false} onChange={(e) => setInputs((i) => ({ ...i, kitchenDisassembly: e.target.checked }))} />
+                        {calc.disassembly}
                       </label>
-                    ))}
+                      <label className="flex items-center gap-2 text-sm">
+                        <input type="checkbox" checked={inputs.kitchenAssembly ?? false} onChange={(e) => setInputs((i) => ({ ...i, kitchenAssembly: e.target.checked }))} />
+                        {calc.assemblyOnly}
+                      </label>
+                    </div>
                   </div>
+
+                  {/* Beds */}
+                  <div className="mb-3 p-3 border border-[var(--border)] rounded-[var(--radius-input)]">
+                    <label className="block text-sm font-medium mb-2">{calc.beds}</label>
+                    <div className="grid grid-cols-2 gap-3 ml-4">
+                      <div>
+                        <label className="block text-xs text-[var(--muted)] mb-1">{calc.doubleBed}</label>
+                        <input type="number" min={0} value={inputs.doubleBedCount ?? 0} onChange={(e) => setInputs((i) => ({ ...i, doubleBedCount: Number(e.target.value) || 0 }))} className="h-10 w-full rounded-[var(--radius-input)] border border-[var(--border)] px-3 text-sm" />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-[var(--muted)] mb-1">{calc.singleBed}</label>
+                        <input type="number" min={0} value={inputs.singleBedCount ?? 0} onChange={(e) => setInputs((i) => ({ ...i, singleBedCount: Number(e.target.value) || 0 }))} className="h-10 w-full rounded-[var(--radius-input)] border border-[var(--border)] px-3 text-sm" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Sofas */}
+                  <div className="mb-3 p-3 border border-[var(--border)] rounded-[var(--radius-input)]">
+                    <label className="block text-sm font-medium mb-2">{calc.sofas}</label>
+                    <div className="grid grid-cols-2 gap-3 ml-4">
+                      <div>
+                        <label className="block text-xs text-[var(--muted)] mb-1">{calc.largeSofa}</label>
+                        <input type="number" min={0} value={inputs.largeSofaCount ?? 0} onChange={(e) => setInputs((i) => ({ ...i, largeSofaCount: Number(e.target.value) || 0 }))} className="h-10 w-full rounded-[var(--radius-input)] border border-[var(--border)] px-3 text-sm" />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-[var(--muted)] mb-1">{calc.standardSofa}</label>
+                        <input type="number" min={0} value={inputs.standardSofaCount ?? 0} onChange={(e) => setInputs((i) => ({ ...i, standardSofaCount: Number(e.target.value) || 0 }))} className="h-10 w-full rounded-[var(--radius-input)] border border-[var(--border)] px-3 text-sm" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Wardrobes */}
+                  <div className="mb-3 p-3 border border-[var(--border)] rounded-[var(--radius-input)]">
+                    <label className="block text-sm font-medium mb-2">{calc.wardrobes}</label>
+                    <div className="grid grid-cols-2 gap-3 ml-4">
+                      <div>
+                        <label className="block text-xs text-[var(--muted)] mb-1">{calc.wardrobe5Door}</label>
+                        <input type="number" min={0} value={inputs.wardrobe5DoorCount ?? 0} onChange={(e) => setInputs((i) => ({ ...i, wardrobe5DoorCount: Number(e.target.value) || 0 }))} className="h-10 w-full rounded-[var(--radius-input)] border border-[var(--border)] px-3 text-sm" />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-[var(--muted)] mb-1">{calc.wardrobe4Door}</label>
+                        <input type="number" min={0} value={inputs.wardrobe4DoorCount ?? 0} onChange={(e) => setInputs((i) => ({ ...i, wardrobe4DoorCount: Number(e.target.value) || 0 }))} className="h-10 w-full rounded-[var(--radius-input)] border border-[var(--border)] px-3 text-sm" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Small Furniture */}
+                  <div className="mb-3 p-3 border border-[var(--border)] rounded-[var(--radius-input)]">
+                    <label className="block text-sm font-medium mb-2">{calc.smallFurniture}</label>
+                    <div className="grid grid-cols-2 gap-3 ml-4">
+                      <div>
+                        <label className="block text-xs text-[var(--muted)] mb-1">{calc.tvCommode}</label>
+                        <input type="number" min={0} value={inputs.tvCommodeCount ?? 0} onChange={(e) => setInputs((i) => ({ ...i, tvCommodeCount: Number(e.target.value) || 0 }))} className="h-10 w-full rounded-[var(--radius-input)] border border-[var(--border)] px-3 text-sm" />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-[var(--muted)] mb-1">{calc.cabinet}</label>
+                        <input type="number" min={0} value={inputs.cabinetCount ?? 0} onChange={(e) => setInputs((i) => ({ ...i, cabinetCount: Number(e.target.value) || 0 }))} className="h-10 w-full rounded-[var(--radius-input)] border border-[var(--border)] px-3 text-sm" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Washing Machine */}
+                  <div className="mb-3 p-3 border border-[var(--border)] rounded-[var(--radius-input)]">
+                    <label className="flex items-center gap-2 text-sm font-medium mb-2">{calc.washingMachine}</label>
+                    <div className="flex gap-4 ml-4">
+                      <label className="flex items-center gap-2 text-sm">
+                        <input type="checkbox" checked={inputs.washingMachineDisassembly ?? false} onChange={(e) => setInputs((i) => ({ ...i, washingMachineDisassembly: e.target.checked }))} />
+                        {calc.disassembly}
+                      </label>
+                      <label className="flex items-center gap-2 text-sm">
+                        <input type="checkbox" checked={inputs.washingMachineAssembly ?? false} onChange={(e) => setInputs((i) => ({ ...i, washingMachineAssembly: e.target.checked }))} />
+                        {calc.assemblyOnly}
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Add-ons */}
+                  <div className="mt-6 pt-4 border-t border-[var(--border)]">
+                    <p className="text-sm font-medium text-[var(--text)] mb-3">{calc.addons}</p>
+                    
+                    <div className="space-y-3">
+                      <div>
+                        <label className="block text-sm text-[var(--text)] mb-1">{calc.packingHours}</label>
+                        <input type="number" min={0} step={0.5} value={inputs.packingHours ?? 0} onChange={(e) => setInputs((i) => ({ ...i, packingHours: Number(e.target.value) || 0 }))} className="h-10 w-full rounded-[var(--radius-input)] border border-[var(--border)] px-3 text-sm" />
+                        <p className="text-xs text-[var(--muted)] mt-1">{calc.packingHoursDesc}</p>
+                      </div>
+                      
+                      <label className="flex items-center gap-2 text-sm">
+                        <input type="checkbox" checked={inputs.parkingPermit ?? false} onChange={(e) => setInputs((i) => ({ ...i, parkingPermit: e.target.checked }))} />
+                        {calc.parkingPermit}
+                      </label>
+                      
+                      <label className="flex items-center gap-2 text-sm">
+                        <input type="checkbox" checked={inputs.weekend ?? false} onChange={(e) => setInputs((i) => ({ ...i, weekend: e.target.checked }))} />
+                        {calc.weekend}
+                      </label>
+                      
+                      <label className="flex items-center gap-2 text-sm">
+                        <input type="checkbox" checked={inputs.lift ?? false} onChange={(e) => setInputs((i) => ({ ...i, lift: e.target.checked }))} />
+                        {calc.lift}
+                      </label>
+                    </div>
+                  </div>
+
                 </div>
                 <Button type="submit" className="w-full">{calc.showResult}</Button>
               </form>

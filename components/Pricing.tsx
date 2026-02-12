@@ -5,9 +5,8 @@ import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import {
   HOURLY_RATE_EUR,
-  PACKAGES,
-  PACKAGE_FROM_PRICES_EUR,
   APARTMENT_FROM_PRICES_EUR,
+  ADDONS,
 } from "@/lib/pricing";
 
 /** Block A: hourly. Block B: packages. Block C: apartment table (design_file §3.6) */
@@ -38,15 +37,31 @@ export function Pricing({ locale }: { locale: Locale }) {
 
         {/* Block B — Packages */}
         <h3 className="font-display text-xl font-semibold text-[var(--text)] mb-4 animate-fade-in-up stagger-4 opacity-0">{p.packages}</h3>
-        <div className="grid sm:grid-cols-3 gap-4 mb-10">
-          {PACKAGES.map((pk, index) => (
-            <Card key={pk.id} variant="gradient-border" className="p-6 text-center animate-scale-in stagger-5 opacity-0" style={{ animationDelay: `${0.5 + index * 0.1}s` }}>
-              <p className="font-display font-semibold text-[var(--text)]">{p[pk.id]}</p>
-              <p className="mt-2 font-display text-lg font-bold gradient-text">
-                from {PACKAGE_FROM_PRICES_EUR[pk.id] ?? pk.hours * HOURLY_RATE_EUR} EUR
-              </p>
-            </Card>
-          ))}
+        <div className="grid sm:grid-cols-4 gap-4 mb-10">
+          {/* 1 Room */}
+          <Card variant="gradient-border" className="p-6 text-center animate-scale-in stagger-5 opacity-0">
+            <p className="font-display font-semibold text-[var(--text)]">{p.oneRoom}</p>
+            <p className="mt-1 text-xs text-[var(--muted)]">3-4h, 2 {locale === "de" ? "Männer" : "movers"}</p>
+            <p className="mt-2 font-display text-lg font-bold gradient-text">from {APARTMENT_FROM_PRICES_EUR[1]} EUR</p>
+          </Card>
+          {/* 2 Rooms */}
+          <Card variant="gradient-border" className="p-6 text-center animate-scale-in stagger-5 opacity-0" style={{ animationDelay: "0.1s" }}>
+            <p className="font-display font-semibold text-[var(--text)]">{p.twoRooms}</p>
+            <p className="mt-1 text-xs text-[var(--muted)]">4-5h, 2 {locale === "de" ? "Männer" : "movers"}</p>
+            <p className="mt-2 font-display text-lg font-bold gradient-text">from {APARTMENT_FROM_PRICES_EUR[2]} EUR</p>
+          </Card>
+          {/* 3 Rooms */}
+          <Card variant="gradient-border" className="p-6 text-center animate-scale-in stagger-5 opacity-0" style={{ animationDelay: "0.2s" }}>
+            <p className="font-display font-semibold text-[var(--text)]">{p.threeRooms}</p>
+            <p className="mt-1 text-xs text-[var(--muted)]">5-6h, 2 {locale === "de" ? "Männer" : "movers"}</p>
+            <p className="mt-2 font-display text-lg font-bold gradient-text">from {APARTMENT_FROM_PRICES_EUR[3]} EUR</p>
+          </Card>
+          {/* 4+ Rooms */}
+          <Card variant="gradient-border" className="p-6 text-center animate-scale-in stagger-5 opacity-0" style={{ animationDelay: "0.3s" }}>
+            <p className="font-display font-semibold text-[var(--text)]">{p.fourPlusRooms}</p>
+            <p className="mt-1 text-xs text-[var(--muted)]">6-8h, 2-3 {locale === "de" ? "Männer" : "movers"}</p>
+            <p className="mt-2 font-display text-lg font-bold gradient-text">from {APARTMENT_FROM_PRICES_EUR[4]} EUR</p>
+          </Card>
         </div>
 
         {/* Block C — Apartment table */}
@@ -68,6 +83,29 @@ export function Pricing({ locale }: { locale: Locale }) {
           </table>
         </div>
         <p className="mt-6 text-sm text-[var(--muted)] animate-fade-in-up stagger-6 opacity-0">{p.vatNote}</p>
+
+        {/* Add-ons Section */}
+        <div className="mt-10 pt-8 border-t border-[var(--border)]">
+          <h3 className="font-display text-xl font-semibold text-[var(--text)] mb-4">{p.addonsTitle}</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Card variant="elevated" className="p-4">
+              <p className="font-display font-semibold text-sm text-[var(--text)] mb-1">{p.packingAddon}</p>
+              <p className="text-lg font-bold text-[var(--accent)]">{p.packingPrice}</p>
+            </Card>
+            <Card variant="elevated" className="p-4">
+              <p className="font-display font-semibold text-sm text-[var(--text)] mb-1">{p.parkingAddon}</p>
+              <p className="text-lg font-bold text-[var(--accent)]">{p.parkingPrice}</p>
+            </Card>
+            <Card variant="elevated" className="p-4">
+              <p className="font-display font-semibold text-sm text-[var(--text)] mb-1">{p.weekendAddon}</p>
+              <p className="text-lg font-bold text-[var(--accent)]">{p.weekendPrice}</p>
+            </Card>
+            <Card variant="elevated" className="p-4">
+              <p className="font-display font-semibold text-sm text-[var(--text)] mb-1">{p.liftAddon}</p>
+              <p className="text-lg font-bold text-[var(--accent)]">{p.liftPrice}</p>
+            </Card>
+          </div>
+        </div>
       </div>
     </Section>
   );
